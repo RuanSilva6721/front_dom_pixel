@@ -24,7 +24,7 @@ Navegue até o diretório clonado e instale as dependências usando o seguinte c
 
 ```bash
 
-cd front-appliances
+cd front_dom_pixel
 npm install
 ```
 
