@@ -2,11 +2,11 @@
  
     <TitleIndexComponent />
     <MenuAdminComponent/>
-  <div > 
+  <div v-if="productData.length > 0"> 
     <h5 class="title">Catálogo de Produtos</h5>
       <CardComponent :productData="productData" />
   </div>
-  <div>
+  <div v-else>
     Não há Produtos cadastrados!!
   </div>
 </template>
@@ -25,7 +25,6 @@ async function getProductAllData() {
   try {
     const responseData = await api.get('/api/applianceProduct');
     productData.value = responseData.data;
-    console.log(productData.value);
   } catch (err) {
     console.error(err);
   }

@@ -1,12 +1,12 @@
 <template>
-  
   <div class="q-pa-md row items-start q-gutter-md">
     <q-card v-for="(item, index) in items" :key="index" class="my-card" flat bordered>
       <q-img src="https://cdn.quasar.dev/img/parallax2.jpg" />
 
       <q-card-section>
         <div class="text-h5 q-mt-sm q-mb-xs">{{ item.name }}</div>
-        <div class="text-caption text-grey">{{ item.voltage }}</div>
+        <div class="text-subtitle2 q-mt-sm">Preço: ${{ item.price }}</div>
+        <div class="text-subtitle2">Quantidade no Estoque: {{ item.stock_quantity }}</div>
       </q-card-section>
 
       <q-card-actions>
@@ -41,8 +41,9 @@
 
           <!-- Formulário de edição -->
           <q-input v-model="editedItem.name" label="Nome" filled />
-          <q-input v-model="editedItem.voltage" label="Voltagem" filled />
           <q-input v-model="editedItem.description" label="Descrição" filled type="textarea" />
+          <q-input v-model="editedItem.price" label="Preço" filled type="number" step="0.01" />
+          <q-input v-model="editedItem.stock_quantity" label="Quantidade em Estoque" filled type="number" />
         </q-card-section>
         <q-card-actions align="right">
           <q-btn flat color="primary" label="Salvar" @click="saveItem" />
@@ -107,7 +108,8 @@ async function saveItem() {
     const responseData = await api.put(`/api/applianceProduct/${editedItem.value.id}`, {
       description: editedItem.value.description,
       name: editedItem.value.name,
-      voltage: editedItem.value.voltage
+      price: editedItem.value.price,
+      stock_quantity: editedItem.value.stock_quantity
     });
     messageTitle.value = 'Sucesso';
     message.value = 'Item salvo com sucesso.';
@@ -145,6 +147,4 @@ function closeMessageModal() {
 .my-card
   width: 100%
   max-width: 350px
-
-
 </style>

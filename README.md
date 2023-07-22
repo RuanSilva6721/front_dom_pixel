@@ -1,6 +1,6 @@
-- # Front Appliance
+- # Front Dom Pixel
 
-Este documento descreve como iniciar e executar o projeto Front Appliance, um teste em Vue.js.
+Este documento descreve como iniciar e executar o projeto Front Dom, um teste em Vue.js.
 ## Pré-requisitos
 
 Certifique-se de ter o seguinte instalado em seu ambiente de desenvolvimento:
@@ -14,7 +14,7 @@ Clone o projeto do repositório usando o seguinte comando:
 
 ```bash
 
-git clone https://github.com/RuanSilva6721/front-appliances.git
+git clone https://github.com/RuanSilva6721/front_dom_pixel.git
 ```
 
 
